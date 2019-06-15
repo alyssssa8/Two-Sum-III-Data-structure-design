@@ -1,0 +1,25 @@
+class TwoSum {
+private:
+    unordered_map<int, int> myMap;
+public:
+    /** Initialize your data structure here. */
+    TwoSum() {
+        
+    }
+    
+    /** Add the number to an internal data structure.. */
+    void add(int number) {
+        myMap[number]++;
+    }
+    
+    /** Find if there exists any pair of numbers which sum is equal to the value. */
+    bool find(int value) {
+        for (auto  i : myMap){
+            if(myMap.count(value - i.first) && (i.first != value - i.first || i.second > 1)){
+                return true;
+            }
+        }
+        return false;
+               
+    }
+};
